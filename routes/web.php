@@ -18,3 +18,13 @@ Route::get('/blog-category', [RevolveController::class,'category'])->name('blog-
 Route::get('/blog-detail', [RevolveController::class,'detail'])->name('blog-detail');
 Route::get('/contact-page', [RevolveController::class,'contact'])->name('contact-page');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
