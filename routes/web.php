@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RevolveController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\CategoryController;
 /*use
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +21,13 @@ Route::get('/blog-detail', [RevolveController::class,'detail'])->name('blog-deta
 Route::get('/contact-page', [RevolveController::class,'contact'])->name('contact-page');
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'),'verified',])->group(function () {
+    Route::get('/dashboard',[AdminDashboardController::class, 'index'] )->name('dashboard');
+
+    Route::get('/add-category',[CategoryController::class, 'index'] )->name('category.add');
+    Route::post('/new-category',[CategoryController::class, 'create'] )->name('category.new');
+    Route::get('/manage-category',[CategoryController::class, 'manage'] )->name('category.manage');
+    Route::get('/edit-category',[CategoryController::class, 'edit'] )->name('category.edit');
+    Route::post('/update-category',[CategoryController::class, 'update'] )->name('category.update');
+    Route::get('/delete-category',[CategoryController::class, 'delete'] )->name('category.delete');
 });
