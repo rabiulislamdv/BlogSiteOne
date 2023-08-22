@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <level for="horizontal-firstname-input" class="col-sm-3 col-form-label">Category Description</level>
+                            <level for="horizontal-email-input" class="col-sm-3 col-form-label">Category Description</level>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="description" id="horizontal-email-input"></textarea>
                             </div>
