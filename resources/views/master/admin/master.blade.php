@@ -150,8 +150,8 @@
                             <span>Blog Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="ecommerce-products.html" key="t-products">Add Blog</a></li>
-                            <li><a href="ecommerce-product-detail.html" key="t-product-detail">Manage Blog</a></li>
+                            <li><a href="{{route('blog.add')}}" key="t-products">Add Blog</a></li>
+                            <li><a href="{{route('blog.manage')}}" key="t-product-detail">Manage Blog</a></li>
                         </ul>
                     </li>
 

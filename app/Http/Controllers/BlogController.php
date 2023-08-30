@@ -2,25 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Auth;
 
 class BlogController extends Controller
 {
     private $blog;
     private  $blogs;
-
+    private $categories;
    public function index()
    {
-       return view('admin.blog.add');
+//       return Auth::user()->name;
+       $this->categories = Category::all();
+       return view('admin.blog.add',['categories'=> $this->categories]);
    }
    public function create(Request $request)
    {
-       return $request->all();
+//       return $request->all();
+
+       Blog::newBlog($request);
+       return redirect()->back()->with('massege', 'Blog info created Successfully.');
    }
 
    public function manage()
    {
-       return view('admin.blog.manage');
+       $this->blogs = Blog::orderBy('id', 'desc')->get();
+       return view('admin.blog.manage',['blogs'=>$this->blogs ]);
    }
 
    public function edit($id)
