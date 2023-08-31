@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('long_description')->nullable();
             $table->text('image')->nullable();
             $table->integer('hit_count')->default(0);
-            $table->integer('comment_count');
+//            $table->integer('comment_count')->default(0);
             $table->tinyInteger('featured_status')->default(0);
             $table->tinyInteger('status')->default(0);
 

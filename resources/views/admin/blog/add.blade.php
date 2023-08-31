@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4"> Add Blog Form</h4>
-                    <p class="text-center text-success">{{Session::get('massege')}}</p>
+                    <p class="text-center text-success">{{Session::get('message')}}</p>
                     <form action="{{route('blog.new')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-4">
@@ -16,7 +16,7 @@
                                 <select class="form-control" required name="category_id">
                                     <option value="" disabled selected>-- Select Category Name--</option>
                                     @foreach($categories as $category)
-                                    <option value="{{$category->name}}">{{$category->name}}</option>
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
 
                                     @endforeach
                                 </select>

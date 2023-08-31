@@ -59,12 +59,13 @@
                                 </a>
 
                             </li>
-                            <li class="nav-item ">
-                                <a class="nav-link" href="{{route('blog-category')}}" id="" role="button" >
-                                    Blog Category
-                                </a>
-
-                            </li>
+                          @foreach($categories as $category)
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{route('blog-category')}}" id="" role="button" >
+                                        {{$category->name}}
+                                    </a>
+                                </li>
+                            @endforeach
 
                             <li class="nav-item">
                                 <a href="{{route('contact-page')}}" class="nav-link">
